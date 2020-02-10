@@ -17,8 +17,8 @@ WHERE ROWNUM <= 3
 
 ## Multi-Value Sub-Query
 
-### *Problem 3. Select first_name, last_name and department_id of all employees whose location_id =1700
-### *Problem 3.1. Select first_name, last_name and department_id of all employees whose location_id !=1700
+### *Problem 3. Select first_name, last_name and department_id of all employees whose location_id =1700*
+### *Problem 3.1. Select first_name, last_name and department_id of all employees whose location_id !=1700*
 
 ### 3: Solution
 select first_name, last_name, department_id FROM EMPLOYEES WHERE DEPARTMENT_ID in(
@@ -28,10 +28,48 @@ select first_name, last_name, department_id FROM EMPLOYEES WHERE DEPARTMENT_ID i
 select first_name, last_name, department_id FROM EMPLOYEES WHERE DEPARTMENT_ID in(
 (select department_id from departments where location_id !=1700));
 
+## Correlated Subquery: Inner Query depends on value provided by external query. Inner query is executed multiple times, once per the external query
+
+### *List of employees that receive hight salaries than their respective departmental average.*
+### Note, inner query to execute multiple time for outher. Its a self join with employees table.
+
+SELECT EMPLOYEE_ID, SALARY, DEPARTMENT_ID FROM EMPLOYEES E1 WHERE 
+SALARY > (SELECT AVG(SALARY) FROM EMPLOYEES E2
+WHERE E1.DEPARTMENT_ID = E2.DEPARTMENT_ID);
+
+
+## Multi-Column Subquery: returns more than one column
+### *Problem 4. Select Employees who earn just the minimum salary for their department.*
+
+select * from employees where (salary, job_id) in(
+select min_salary, job_id
+from jobs)
+
+## In-Line Query: When a multi-column sub-query is used in a from clause its called in-line view.
+### *Problem 5. How Many employees are assigned to each department, including department_id that comes from departments table.*
+
+SELECT * FROM (
+SELECT  DEPARTMENT_ID, COUNT(*) EMP_COUNT
+FROM EMPLOYEES
+GROUP BY DEPARTMENT_ID) emp JOIN DEPARTMENTS deps ON emp.DEPARTMENT_ID= deps.DEPARTMENT_ID;
+
+### *Problem 6. Select top salaries who doesn't earn commisions.
+SELECT * FROM EMPLOYEES
+WHERE COMMISSION_PCT IS NULL
+ORDER BY SALARY DESC
+
+### *Problem 6. Select top three (3) salaries who doesn't earn commisions.
+SELECT * FROM (
+SELECT * FROM EMPLOYEES
+WHERE COMMISSION_PCT IS NULL
+ORDER BY SALARY DESC)top_salaries
+WHERE ROWNUM <=3
 
 
 ## Select Top salary from Each Department
 SELECT MAX(SALARY) AS MAX_SAL, DEPARTMENT_ID FROM EMPLOYEES GROUP BY DEPARTMENT_ID ORDER BY MAX_SAL DESC;
+
+
 
 
 
