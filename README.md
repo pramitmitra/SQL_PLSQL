@@ -30,8 +30,8 @@ select first_name, last_name, department_id FROM EMPLOYEES WHERE DEPARTMENT_ID i
 
 ## Correlated Subquery: Inner Query depends on value provided by external query. Inner query is executed multiple times, once per the external query
 
-### *List of employees that receive hight salaries than their respective departmental average.*
-### Note, inner query to execute multiple time for outher. Its a self join with employees table.
+### *List of employees that receive hight salaries than their respective departmental average.* ###
+### Note, inner query to execute multiple time for outher. Its a self join with employees table. ###
 
 SELECT EMPLOYEE_ID, SALARY, DEPARTMENT_ID FROM EMPLOYEES E1 WHERE 
 SALARY > (SELECT AVG(SALARY) FROM EMPLOYEES E2
@@ -58,7 +58,8 @@ SELECT * FROM EMPLOYEES
 WHERE COMMISSION_PCT IS NULL
 ORDER BY SALARY DESC
 
-### *Problem 6. Select top three (3) salaries who doesn't earn commisions.
+### *Problem 6. Select top three (3) salaries who doesn't earn commisions.###
+
 SELECT * FROM (
 SELECT * FROM EMPLOYEES
 WHERE COMMISSION_PCT IS NULL
@@ -66,7 +67,7 @@ ORDER BY SALARY DESC)top_salaries
 WHERE ROWNUM <=3
 
 
-## Select Top salary from Each Department
+## Select Top salary from Each Department ##
 SELECT MAX(SALARY) AS MAX_SAL, DEPARTMENT_ID FROM EMPLOYEES GROUP BY DEPARTMENT_ID ORDER BY MAX_SAL DESC;
 
 
@@ -77,12 +78,13 @@ SELECT MAX(SALARY) AS MAX_SAL, DEPARTMENT_ID FROM EMPLOYEES GROUP BY DEPARTMENT_
 ## PL-SQL (Procedural SQL)
 ### Since SQL lacks certain programming features, like declaring variable, storing intermediate results or looping through, so oracle has provided feature to write program snippet using PLSQL.
 
-* Features:
-** Procedures
-** Function 
-** Packages
+*   Features:
+    *   Procedures
+    *   Function 
+    *   Packages
 
-** Procedure:
+```javascript
+
 CREATE PROCEDURE hr.update_emp_sal (P_EMP_ID IN NUMBER, SAL_RAISE IN NUMBER)
 AS
     V_EMP_CURRENT_SAL_NUMBER;
@@ -100,7 +102,7 @@ EMPLOYEE_ID=P_EMP_ID
  COMMIT;
 END;
    
-
+```
 
 
 
