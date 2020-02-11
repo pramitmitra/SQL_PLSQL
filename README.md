@@ -74,6 +74,35 @@ SELECT MAX(SALARY) AS MAX_SAL, DEPARTMENT_ID FROM EMPLOYEES GROUP BY DEPARTMENT_
 
 ## B-Tree Index: Data Structure similiar to tree. Branch block for search and leaf block to store value.
 
+## PL-SQL (Procedural SQL)
+### Since SQL lacks certain programming features, like declaring variable, storing intermediate results or looping through, so oracle has provided feature to write program snippet using PLSQL.
+
+* Features:
+** Procedures
+** Function 
+** Packages
+
+** Procedure:
+CREATE PROCEDURE hr.update_emp_sal (P_EMP_ID IN NUMBER, SAL_RAISE IN NUMBER)
+AS
+    V_EMP_CURRENT_SAL_NUMBER;
+BEGIN
+SELECT SALARY INTO V_EMP_CURRENT_SAL FROM EMPLOYEES WHERE
+EMPLOYEE_ID=P_EMP_ID
+
+    UPDATE employees
+   SET salary=V_EMP_CURRENT_SAL+SAL_RAISE
+    WHERE employee_id=P_EMP_ID;
+    
+ EXCEPTION WHEN OTHERS THEN
+   RAISE_APPLICATION_ERROR (-20001, 'An error was encountered - '||SQLCODE||' ERROR - '|| SQLERRM);
+   ROLLBACK;
+ COMMIT;
+END;
+   
+
+
+
 
 
 
