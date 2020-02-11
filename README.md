@@ -72,6 +72,7 @@ SELECT MAX(SALARY) AS MAX_SAL, DEPARTMENT_ID FROM EMPLOYEES GROUP BY DEPARTMENT_
 
 
 
+## B-Tree Index: Data Structure similiar to tree. Branch block for search and leaf block to store value.
 
 
 
