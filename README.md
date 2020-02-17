@@ -9,13 +9,15 @@ https://cs.brown.edu/~ugur/fits_all.pdf
 * Hence, traditional RBDMS vendors provides support for both B-Tree and Bit-Map indexes.
 * Materialized views are a useful optimization tactic in warehouse worlds, but never in OLTP worlds. I?n contrast, normal ("virtual") views find acceptance in OLTP environments.
 
+# Spark SQL Performance Tuning Tips #
+https://teradatabasics.blogspot.com/?view=classic
 
 
-# **SQL**
+# **SQL** #
 
-## Single Value Sub-Query: Sub-query in the where clasuse of a SQL query
+## Single Value Sub-Query: Sub-query in the where clasuse of a SQL query ##
 
-### *Problem 1. Find highest earning salary*
+### *Problem 1. Find highest earning salary* ###
 
 select * from employee where salary =
 (select max(salary) from employeed);
