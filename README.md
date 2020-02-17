@@ -120,6 +120,54 @@ END;
 ```
 
 
+/*
+CoderPad provides a basic SQL sandbox with the following schema.
+You can also use commands like `show tables` and `desc employees`
+
+employees                                 projects
++---------------+---------+           +---------------+---------+
+| id                      | int     |<----+  +->| id            | int     |
+| first_name        | varchar |      |  |  | title         | varchar |
+| last_name         | varchar |      |  |  | start_date    | date    |
+| salary                | int     |         |  |  | end_date      | date    |
+| department_id  | int     |--+     |  |  | budget        | int     |
++---------------+---------+  |  |  |  +---------------+---------+
+                             |  |  |
+departments                  |  |  |      employees_projects
++---------------+---------+  |  |  |  +---------------+---------+
+| id                | int     |<-+    |  +--| project_id    | int     |
+| name          | varchar |     +-----| employee_id   | int     |
++---------------+---------+           +---------------+---------+
+*/
+/*
+Q1. Generate a report with all employee details who are drawing highest salary by each department
+
+Q2. Find out employees who has not worked on any project between 2009-01-01 and 2012-12-31 date period.
+
+Q3. Assume you are given a file with list of employee records that needs to be deleted from employees table. How would you achieve this with or without using delete statement?
+
+Q4. Assume you have given a very large pipe delimited data file (text format), and that has different number of fields separated by '|'
+How do you cleanse this file by extracting only records with 3 fields and load that data into a different file/table.
+
+Using the same original file assume you have a Customer Review column in position number 3.
+Find out the count of all  characters in each Customer review? And display the total number of characters in all of the reviews.
+
+Original file contents sample:
+
+Customer_ID | Customer_Name | Customer_Review
+1|c1|I liked the front desk people who cares their customer's needs.
+1|c1|I liked the front desk people who cares their customer's needs.|This is a bad record
+2|c2|I liked the quality and pricing of their goods.
+3|c3|I liked the quality and pricing of their goods.| This is another bad record | sddsfdsfs
+
+Total number of characters in all of the reviews:
+63
+63+47 = 110
+and so on..
+
+*/
+
+
 
 
 
