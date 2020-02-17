@@ -1,7 +1,7 @@
 # Reading Notes from Paper - “One Size Fits All”: An Idea Whose Time Has Come and Gone by Michael Stonebraker" #
 https://cs.brown.edu/~ugur/fits_all.pdf
 * Data warehouses are very different from OLTP systems. OLTP systems have been optimized for updates, as the main business activity is typically to sell a good or service,
-* In contrast,  the main activity activity in data warehouses is ad-hoc queries, which are often quite complex. Hence periodic load of new data intersprersed with ad-hoc query activity is what a typical warehouse experience.
+* In contrast,  the main activity in data warehouses is ad-hoc queries, which are often quite complex. Hence periodic load of new data intersprersed with ad-hoc query activity is what a typical warehouse experience.
 * Star Schemas are omni-present in warehouse environments, but are virtually non-existence in OLTP environment.
 * ER-Model for OLTP systems - 
 * OLTP sytem prefers to use B-Tree indexes.
@@ -17,20 +17,21 @@ https://teradatabasics.blogspot.com/?view=classic
 
 ## Single Value Sub-Query: Sub-query in the where clasuse of a SQL query ##
 
-### *Problem 1. Find highest earning salary* ###
-
+### * Problem 1. Find highest earning salary * ###
+```
 select * from employee where salary =
 (select max(salary) from employeed);
+```
 
-
-### *Problem 2. Find three (3) highest earning salary*
-
+### * Problem 2. Find three (3) highest earning salary * ###
+```
 SELECT * FROM (
 SELECT * FROM employees
 ORDER BY salary DESC)
 WHERE ROWNUM <= 3;
+```
 
-## Multi-Value Sub-Query
+## * Multi-Value Sub-Query * ###
 
 ### *Problem 3. Select first_name, last_name and department_id of all employees whose location_id =1700*
 ### *Problem 3.1. Select first_name, last_name and department_id of all employees whose location_id !=1700*
