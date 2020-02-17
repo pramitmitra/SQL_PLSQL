@@ -1,3 +1,7 @@
+# Reading Notes from Paper - “One Size Fits All”: An Idea Whose Time Has Come and Gone by Michael Stonebraker" #
+https://cs.brown.edu/~ugur/fits_all.pdf
+
+
 # **SQL**
 
 ## Single Value Sub-Query: Sub-query in the where clasuse of a SQL query
