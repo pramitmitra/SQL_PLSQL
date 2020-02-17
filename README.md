@@ -1,5 +1,14 @@
 # Reading Notes from Paper - “One Size Fits All”: An Idea Whose Time Has Come and Gone by Michael Stonebraker" #
 https://cs.brown.edu/~ugur/fits_all.pdf
+* Data warehouses are very different from OLTP systems. OLTP systems have been optimized for updates, as the main business activity is typically to sell a good or service,
+* In contrast,  the main activity activity in data warehouses is ad-hoc queries, which are often quite complex. Hence periodic load of new data intersprersed with ad-hoc query activity is what a typical warehouse experience.
+* Star Schemas are omni-present in warehouse environments, but are virtually non-existence in OLTP environment.
+* ER-Model for OLTP systems - 
+* OLTP sytem prefers to use B-Tree indexes.
+* DWH system prefers to use Bit-Map indexes.
+* Hence, traditional RBDMS vendors provides support for both B-Tree and Bit-Map indexes.
+* Materialized views are a useful optimization tactic in warehouse worlds, but never in OLTP worlds. I?n contrast, normal ("virtual") views find acceptance in OLTP environments.
+
 
 
 # **SQL**
@@ -17,7 +26,7 @@ select * from employee where salary =
 SELECT * FROM (
 SELECT * FROM employees
 ORDER BY salary DESC)
-WHERE ROWNUM <= 3
+WHERE ROWNUM <= 3;
 
 ## Multi-Value Sub-Query
 
