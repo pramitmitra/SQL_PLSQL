@@ -17,13 +17,13 @@ https://teradatabasics.blogspot.com/?view=classic
 
 ## Single Value Sub-Query: Sub-query in the where clasuse of a SQL query ##
 
-### * Problem 1. Find highest earning salary * ###
+### Problem 1. Find highest earning salary. ###
 ```
 select * from employee where salary =
 (select max(salary) from employeed);
 ```
 
-### * Problem 2. Find three (3) highest earning salary * ###
+### Problem 2. Find three (3) highest earning salary. ###
 ```
 SELECT * FROM (
 SELECT * FROM employees
@@ -37,8 +37,10 @@ WHERE ROWNUM <= 3;
 ### *Problem 3.1. Select first_name, last_name and department_id of all employees whose location_id !=1700*
 
 ### 3: Solution
+```
 select first_name, last_name, department_id FROM EMPLOYEES WHERE DEPARTMENT_ID in(
 (select department_id from departments where location_id =1700));
+```
 
 ### 3.1: Solution
 select first_name, last_name, department_id FROM EMPLOYEES WHERE DEPARTMENT_ID in(
