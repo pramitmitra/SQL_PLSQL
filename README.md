@@ -31,18 +31,25 @@ ORDER BY salary DESC)
 WHERE ROWNUM <= 3;
 ```
 
+### Problem 3. Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates. ###
+```
+SELECT DISTINCT CITY
+FROM STATION
+WHERE lower(substr(CITY,1,1)) in('a','e','i','o','u');
+```
+
 ## * Multi-Value Sub-Query * ###
 
-### *Problem 3. Select first_name, last_name and department_id of all employees whose location_id =1700*
-### *Problem 3.1. Select first_name, last_name and department_id of all employees whose location_id !=1700*
+### *Problem 4. Select first_name, last_name and department_id of all employees whose location_id =1700*
+### *Problem 4.1. Select first_name, last_name and department_id of all employees whose location_id !=1700*
 
-### 3: Solution
+### 4: Solution
 ```
 select first_name, last_name, department_id FROM EMPLOYEES WHERE DEPARTMENT_ID in(
 (select department_id from departments where location_id =1700));
 ```
 
-### 3.1: Solution
+### 4.1: Solution
 select first_name, last_name, department_id FROM EMPLOYEES WHERE DEPARTMENT_ID in(
 (select department_id from departments where location_id !=1700));
 
