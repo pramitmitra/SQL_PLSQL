@@ -45,6 +45,14 @@ FROM STATION
 WHERE lower(substr(CITY,-1,1)) in('a','e','i','o','u');
 ```
 
+### Problem 5. Query the list of CITY names from STATION which have vowels (i.e., a, e, i, o, and u) as both their first and last characters. ###
+```
+SELECT DISTINCT CITY
+FROM STATION
+WHERE lower(substr(CITY,-1,1)) in('a','e','i','o','u')
+AND lower(substr(CITY,1,1)) in('a','e','i','o','u');
+```
+
 ## * Multi-Value Sub-Query * ###
 
 ### *Problem 5. Select first_name, last_name and department_id of all employees whose location_id =1700*
