@@ -1,4 +1,6 @@
 # SQL Quick References #
+* SQL ALL and ANY [https://www.geeksforgeeks.org/sql-all-and-any/]
+* SQL UNION [https://www.geeksforgeeks.org/sql-union-clause/?ref=lbp]
 * SQL INTERSECT and EXCEPT [https://www.geeksforgeeks.org/sql-intersect-except-clause/?ref=lbp]
 
 # Reading Notes from Paper - “One Size Fits All”: An Idea Whose Time Has Come and Gone by Michael Stonebraker" #
