@@ -31,6 +31,7 @@
 --insert into emp_register values ('A','IN','2021-04-23 10:32:00-00');
 --insert into emp_register values ('B','IN','2021-04-23 11:05:00-00');
 --insert into emp_register values ('C','OUT','2021-04-23 12:00:00-00');
+insert into emp_register values ('E','IN','2021-04-23 10:29:00-00');
 --
 --select * from emp_register;
 
@@ -77,4 +78,20 @@ insert into emp  values(   7844, 'TURNER', 'SALESMAN', 7698,   '1981-08-09',   1
 insert into emp  values(   7876, 'ADAMS', 'CLERK', 7788,   '1987-04-13', 1100, null, 20  );
 insert into emp  values(   7900, 'JAMES', 'CLERK', 7698,   '1981-12-03',   950, null, 30  );
 insert into emp  values(   7934, 'MILLER', 'CLERK', 7782,   '1982-01-23',   1300, null, 10  );
+
+
+
+---https://www.hackerrank.com/challenges/occupations/problem
+create table OCCUPATIONS (name varchar(14), occupation        varchar(14));
+  
+ insert into OCCUPATIONS values('Samantha','Doctor');
+ insert into OCCUPATIONS values('Julia','Actor');
+ insert into OCCUPATIONS values('Maria','Actor');
+ insert into OCCUPATIONS values('Meera','Singer');
+ insert into OCCUPATIONS values('Ashely','Professor');
+ insert into OCCUPATIONS values('Ketty','Professor');
+ insert into OCCUPATIONS values('Christeen','Professor');
+ insert into OCCUPATIONS values('Jane','Actor');
+ insert into OCCUPATIONS values('Jenny','Actor');
+ insert into OCCUPATIONS values('Priya','Singer');
 

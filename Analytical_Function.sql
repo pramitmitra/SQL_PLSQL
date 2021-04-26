@@ -59,5 +59,58 @@ rank() over(partition by deptno order by sal desc ) as rank_sal_by_dept,
 rank() over(partition by deptno order by comm asc) as rank_comm_by_dept
 from emp;
 
+--4: Find median salary from emp table
+select
+	avg(sal)
+	from
+		(
+		select * from 
+			(
+			select
+			sal,
+			row_number() over (order by sal) as row_num
+			from 
+			emp
+			) a
+		cross join
+			(
+			select
+			count(*) as cnt
+			from 
+			emp
+			) b
+		) c
+		where
+		row_num  between (cnt+1)/2 and (cnt+2)/2
+		
+--4: https://www.hackerrank.com/challenges/occupations/problem
+select * from OCCUPATIONS;
+-- Input:
+--Samantha	Doctor
+--Julia	Actor
+--Maria	Actor
+--Meera	Singer
+--Ashely	Professor
+--Ketty	Professor
+--Christeen	Professor
+--Jane	Actor
+--Jenny	Actor
+--Priya	Singer
+
+--Output:
+--Jenny    Ashley     Meera  Jane
+--Samantha Christeen  Priya  Julia
+--NULL     Ketty      NULL   Maria
+
+Select D.Name, P.Name, S.Name, A.Name
+from
+(Select Name, row_number() over (partition by occupation order by name) id from Occupations where Occupation = 'Doctor') D
+full outer join
+(Select Name, row_number() over (partition by occupation order by name) id from Occupations where Occupation = 'Professor') P on D.id = P.id
+full outer join
+(Select Name, row_number() over (partition by occupation order by name) id from Occupations where Occupation = 'Singer') S on P.id = S.id
+full outer join
+(Select Name, row_number() over (partition by occupation order by name) id from Occupations where Occupation = 'Actor') A on S.id = A.id;
+
 
 
