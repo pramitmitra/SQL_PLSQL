@@ -1,5 +1,20 @@
 --1:Bike Problem
 
+Input:
+--------
+--bike|rent_time|return_time
+1|8:00|8:30
+1|9:00|9:30
+1|11:00|12:00
+2|10:00|11:00
+2|11:30|12:00
+
+--Output
+-- bike|idel_time_in|idel_time_out
+-- 1|8:30|9:00
+-- 1|9:30|11:00
+-- 2|11:00|11:30
+
 select 
 bike,
 return_time,
